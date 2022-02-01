@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="p-1 rounded rounded-pill shadow-sm mb-4" [formGroup]="form">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </div>
+      <input type="search" placeholder="Buscar por um Filme, Série ou Pessoa" aria-describedby="button-addon2"
+        class="form-control border-0 bg-light" formControlName="search">
+    </div>
+    <div class="arrayMovies" formArrayName="list_search"
+      *ngFor="let list of form.controls.list_search?.value; let i = index">
+      <ul>
+        <li (click)="cleanArray()" [routerLink]="['/details/',list.id]">
+          <span>{{list.original_title}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
