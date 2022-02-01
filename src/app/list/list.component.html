@@ -1,0 +1,41 @@
+<div class="container" [formGroup]="form">
+  <!-- <div class="row">
+      <div class="col-sm-6">
+          <div class="form-group">
+              <label for="exampleFormControlSelect1">Gêneros</label>
+              <select class="form-control" formControlName="genre" name="genre" (change)="onChangeGenero(genero)">
+                  <option value="" disabled>Selecione um Gênero</option>
+                  <option value="{{g.id}}" *ngFor="let g of generos">{{g.name}}</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-sm-6">
+          <div class="form-group">
+              <label for="exampleFormControlSelect1">Filmes</label>
+              <select class="form-control" formControlName="movie" name="movie" (change)="onChangeFilme(filme)"
+                  name="filme">
+                  <option value="" disabled>Selecione um Filme</option>
+                  <option value="{{f}}" *ngFor="let f of cbMovies">{{f}}</option>
+              </select>
+          </div>
+      </div>
+  </div>-->
+
+  <div class="row">
+    <div class="col-sm-6" *ngFor="let item of movies">
+      <div class="galeria">
+        <img [src]="item.poster_path" class="img-left">
+        <h5 class="card-title">
+          <strong>{{item.title}}</strong>
+        </h5>
+        <p>{{item.release_date | date: 'dd/MM/yyyy'}} </p>
+        <div class="description">
+          {{item.overview}}
+        </div>
+        <p class="view_more"><a class="result" [routerLink]="['/details/',item.id]" title="The Old Man &amp; the Gun"
+            alt="The Old Man &amp; the Gun">Mais
+            Informações</a></p>
+      </div>
+    </div>
+  </div>
+</div>
